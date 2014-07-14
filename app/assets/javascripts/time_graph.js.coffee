@@ -9,11 +9,13 @@ window.String.prototype.capitalize = ->
 class @TimeGraph
   xOffset: 40
   yOffset: 20
+  weeksPerYear: 52
   constructor: (elem, baseColor, gridWidth, gridHeight)->
+    @weeksPerYear = 53 if (new Date).getDay() == 0
     @baseColor = baseColor
     @gridWidth = gridWidth
     @gridHeight = gridHeight
-    @width = (gridWidth + 2) * 53 + @xOffset + 100
+    @width = (gridWidth + 2) * @weeksPerYear + @xOffset + 100
     @height = (gridHeight + 2) * 7 + @yOffset
     @g = Raphael("time-graph", @width, @height)
     @tooltip = new Tooltip
@@ -39,7 +41,7 @@ class @TimeGraph
     positionMonthMap = {}
     tmpWeek = currentDate.getWeek()
     currentDate.setDate(1)
-    absoluteColumn = 53 - (tmpWeek - currentDate.getWeek())
+    absoluteColumn = @weeksPerYear - (tmpWeek - currentDate.getWeek())
     currentColumn = absoluteColumn
 
     for i in [12..1]
@@ -130,7 +132,7 @@ class @TimeGraph
   drawDays: ->
     self = @
     currentDate = new Date
-    x = @xOffset + (@gridWidth+2)*53
+    x = @xOffset + (@gridWidth+2)*@weeksPerYear
     # y = @yOffset + @gridHeight*(currentDate.getDay() - 1)
     for i in [0..365]
       day = currentDate.getDay()
