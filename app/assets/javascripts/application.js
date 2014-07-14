@@ -12,7 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require raphael-min
+//= require chance.min
 //= require turbolinks
 //= require bootstrap
 
 //= require_tree .
+window.App = {};

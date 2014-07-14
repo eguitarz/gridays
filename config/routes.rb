@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resource :prototypes, only: :show
+  root 'prototypes#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
