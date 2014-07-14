@@ -86,6 +86,18 @@ class @TimeGraph
 
   drawGrid: (x, y, data, color)->
     self = @
+    selectGrid = ->
+      @isSelected = true
+      @attr({stroke: '#333', 'stroke-width': 3})
+      for item in ['reads', 'sports', 'works', 'others']
+        # remove items
+        $(".#{item}-collection .list-group-item:gt(0)").remove()
+        for activity, hours of data.activities[item]
+          $(".#{item}-collection").append $('<div class="list-group-item">').html("<div class=\"item-name\">#{activity}</div><div class=\"item-hours\">#{hours}h</div>")
+        # update date
+      $(".selected-date").text data.date
+      self.lastSelected.attr({stroke: 'none', 'stroke-width': 2}) if self.lastSelected
+      self.lastSelected = @
 
     # find maximum
     maxCategory = null
@@ -110,17 +122,9 @@ class @TimeGraph
       @attr({stroke: 'none'}) unless @isSelected
       self.tooltip.hide()
     grid.click ->
-      @isSelected = true
-      @attr({stroke: '#333', 'stroke-width': 3})
-      for item in ['reads', 'sports', 'works', 'others']
-        # remove items
-        $(".#{item}-collection .list-group-item:gt(0)").remove()
-        for activity, hours of data.activities[item]
-          $(".#{item}-collection").append $('<div class="list-group-item">').html("<div class=\"item-name\">#{activity}</div><div class=\"item-hours\">#{hours}h</div>")
-        # update date
-      $(".selected-date").text data.date
-      self.lastSelected.attr({stroke: 'none', 'stroke-width': 2}) if self.lastSelected
-      self.lastSelected = @
+      selectGrid.call(@)
+    grid.touchend ->
+      selectGrid.call(@)
     grid
 
   drawDays: ->
