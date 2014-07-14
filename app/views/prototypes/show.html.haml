@@ -1,0 +1,87 @@
+#time-graph
+	-# %svg{width: "721", height: "110"}
+	-# 	%g{transform: "translate(20,20)"}
+	-# 		%g{transform: "translate(0,0)"}
+	-# 			%rect{width: "11", height: "11", style: "fill: rgb(214,230,133)"}
+	-# 			%rect{width: "11", height: "11", y: "13", style: "fill: rgb(214,230,133)"}
+.container
+	.selected-date
+		Someday (Click on the grid above to update)
+	#activities.row
+		.log-form.col-md-3
+			.list-group.reads-collection
+				.list-group-item.list-group-item-success
+					.glyphicon.glyphicon-book
+					Reads
+					= link_to '<i class="glyphicon glyphicon-cog pull-right"></i>'.html_safe, '#', title: 'in developing'
+				.list-group-item
+					.item-name
+						Ruby on Rails for dumbs 
+					.item-hours
+						1h
+				.list-group-item
+					.item-name
+						Node.js for dumbs 
+					.item-hours
+						1.5h
+				.list-group-item
+					.item-name
+						Lean startups
+					.item-hours
+						0.5h
+				.list-group-item
+					.item-name
+						How do I become a millionaire in only one night
+					.item-hours
+						20h
+			.new-item-btn.btn.btn-success.center-block{title:'in developing'}
+				Add new item
+		.log-form.col-md-3
+			.list-group.sports-collection
+				.list-group-item.list-group-item-info
+					.glyphicon.glyphicon-tint
+					Sports
+					= link_to '<i class="glyphicon glyphicon-cog pull-right"></i>'.html_safe, '#', title: 'in developing'
+				.list-group-item
+					.item-name
+						Push-ups
+					.item-hours
+						0.25h
+				.list-group-item
+					.item-name
+						Jogging
+					.item-hours
+						1.5h
+			.new-item-btn.btn.btn-info.center-block{title:'in developing'}
+				Add new item
+		.log-form.col-md-3
+			.list-group.works-collection
+				.list-group-item.list-group-item-warning
+					.glyphicon.glyphicon-tower
+					Works
+					= link_to '<i class="glyphicon glyphicon-cog pull-right"></i>'.html_safe, '#', title: 'in developing'
+				.list-group-item
+					.item-name
+						Play video games
+					.item-hours
+						2h
+				.list-group-item
+					.item-name
+						Play with girl friend
+					.item-hours
+						1.5h
+			.new-item-btn.btn.btn-warning.center-block{title:'in developing'}
+				Add new item
+		.log-form.col-md-3
+			.list-group.others-collection
+				.list-group-item.list-group-item-danger
+					.glyphicon.glyphicon-tasks
+					Others
+					= link_to '<i class="glyphicon glyphicon-cog pull-right"></i>'.html_safe, '#', title: 'in developing'
+				.list-group-item
+					.item-name
+						Buy foods
+					.item-hours
+						0.5h
+			.new-item-btn.btn.btn-danger.center-block{title:'in developing'}
+				Add new item

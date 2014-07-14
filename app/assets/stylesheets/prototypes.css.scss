@@ -1,0 +1,97 @@
+.navbar-brand:after {
+	content: 'beta';
+	position: relative;
+	font-size: 8px;
+	top: 10px;
+	left: -10px;
+	color: #5cb85c;
+}
+
+.navbar-description {
+	padding: 15px;
+	color: #999;
+}
+
+#activities {
+
+}
+
+#time-graph {
+	width: 980px;
+	height: 155px;
+	margin: 40px auto 20px auto;
+	background-color: #fefefe;
+	border: 1px solid #dedede;
+	border-radius: 10px;
+}
+
+.list-group {
+	//min-width: 260px;
+}
+
+.item-name {
+	width: 80%;
+	display: inline-block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.item-hours {
+	width: 15%;
+	float: right;
+	display: inline-block;
+}
+
+.selected-date{
+	margin-bottom: 10px;
+}
+
+#graph-tooltip {
+	background-color: #333;
+	color: #fff;
+}
+
+.tooltip {
+	padding: 5px;
+	border-radius: 3px;
+}
+
+.tooltip:after {
+	border-top: 6px solid #333;
+	border-bottom: 3px solid transparent; 
+	border-right: 3px solid transparent; 
+	border-left: 3px solid transparent; 
+	content: ' ';
+	position: absolute;
+	left: calc(50% - 3px);
+	top: 100%;
+}
+
+@mixin tooltip-activity {
+	margin-right: 5px
+}
+
+.reads {
+	@include tooltip-activity;
+	color: #5cb85c;
+}
+
+.sports {
+	@include tooltip-activity;
+	color: #5bc0de;
+}
+
+.works {
+	@include tooltip-activity;
+	color: #f0ad4e;
+}
+
+.others {
+	@include tooltip-activity;
+	color: #d9534f;
+}
+
+.btn, .glyphicon-cog {
+	cursor: no-drop !important;
+}
