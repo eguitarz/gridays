@@ -118,8 +118,7 @@ class @TimeGraph
         for activity, hours of data.activities[item]
           $(".#{item}-collection").append $('<div class="list-group-item">').html("<div class=\"item-name\">#{activity}</div><div class=\"item-hours\">#{hours}h</div>")
         # update date
-        d = data.dateObj
-        $(".selected-date").text "#{self.numToWeekdayString(d.getDay())}, #{self.numToMonthString(d.getMonth()).capitalize()} #{d.getDate()}, #{d.getFullYear()}"
+      $(".selected-date").text data.date
       self.lastSelected.attr({stroke: 'none', 'stroke-width': 2}) if self.lastSelected
       self.lastSelected = @
     grid
@@ -167,7 +166,6 @@ class @TimeGraph
     data = {}
     data.activities = {}
     data.timesheet = {}
-    data.dateObj = d
     data.date = "#{@numToWeekdayString(d.getDay())}, #{@numToMonthString(d.getMonth()).capitalize()} #{d.getDate()}, #{d.getFullYear()}"
 
     if hasActivitiesOrNot()
