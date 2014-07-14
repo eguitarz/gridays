@@ -158,7 +158,7 @@ class @TimeGraph
       data.activities[activity] = {}
       data.timesheet[activity] = 0
       for i in [0..chance.integer({min:1, max:4})]
-        elapsedHours = chance.floating({min: 0.25, max: 8, fixed: 2})
+        elapsedHours = chance.floating({min: 0.25, max: 1.5, fixed: 2})
         data.activities[activity][ seeds[chance.integer({min:0, max:seeds.length - 1})] ] = elapsedHours
         data.timesheet[activity] += elapsedHours
 
